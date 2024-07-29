@@ -7,23 +7,19 @@ def dfs(adj, used, order, x):
     for neighbour in adj[x]:
         if used[neighbour] == 0:
             dfs(adj, used, order, neighbour)
-
     order.insert(0, x)
 
 
 def toposort(adj):
     used = [0] * len(adj)
     order = []
-
     for v in range(0, len(adj)):
         if used[v] == 0:
             dfs(adj, used, order, v)
-
     return order
 
 if __name__ == '__main__':
-    #input = sys.stdin.read()
-    input = "\n".join(sys.stdin.readlines())
+    input = sys.stdin.read()
     data = list(map(int, input.split()))
     n, m = data[0:2]
     data = data[2:]
